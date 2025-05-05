@@ -25,7 +25,7 @@ int main() {
     sizecmp(file1, file2);
     blockcmp(file1, file2);
     datecmp(file1, file2);
-    timecmp(file1, time1, file2, time2);
+    timecmp(file1, file2);
 
     return 0;
 }
