@@ -1,17 +1,16 @@
-#include <blockcmp.h>
-void blockcmp()
-{
+#include "blockcmp.h"
+void blockcmp(const char* filename1, const char* filename2){
 
+    struct stat s1;
+    struct stat s2;
     // Get file state
-    if (stat(file1, &stat1) != 0)
-    {
+    if (stat(filename1, &s1) != 0) {
         perror("no file");
         return;
     }
 
     // // Get file state
-    if (stat(file2, &stat2) != 0)
-    {
+    if (stat(filename2, &s2) != 0) {
         perror("no file");
         return;
     }
@@ -19,16 +18,11 @@ void blockcmp()
     printf("block compare\n");
 
     // compare block size
-    if (stat1.st_blocks > stat2.st_blocks)
-    {
+    if (s1.st_blocks > s2.st_blocks) {
         printf("Text1 is bigger\n\n");
-    }
-    else if (stat1.st_blocks < stat2.st_blocks)
-    {
+    } else if (s1.st_blocks < s2.st_blocks) {
         printf("Text2 is bigger\n\n");
-    }
-    else
-    {
+    } else {
         printf("Sizes are equal\n\n");
     }
 }
