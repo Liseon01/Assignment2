@@ -7,5 +7,5 @@
 #include <unistd.h>
 #include <time.h>
 
-void datecmp(struct stat s1, struct stat s2, const char* filename1, const char* filename2);
+void datecmp(const char* filename1, const char* filename2);
 #endif

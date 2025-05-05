@@ -7,6 +7,6 @@
 #include <unistd.h>
 #include <time.h>
 
-void timecmp(struct stat s1, struct stat s2, const char* filename1, const char* filename2);
+void timecmp(const char* filename1, const char* filename2);
 
 #endif

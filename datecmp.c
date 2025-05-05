@@ -1,7 +1,9 @@
 #include "datecmp.h"
 
-void datecmp(struct stat s1, struct stat s2, const char* filename1, const char* filename2){
+void datecmp(const char* filename1, const char* filename2){
 
+    struct stat s1;
+    struct stat s2;
     // Get file state
     if (stat(filename1, &s1) != 0) {
         perror("no file");
