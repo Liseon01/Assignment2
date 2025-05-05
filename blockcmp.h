@@ -7,12 +7,6 @@
 #include <unistd.h>
 #include <time.h>
 
-struct stat stat1, stat2;
-struct tm *time1, *time2;
-
-const char *file1 = "./text1";
-const char *file2 = "./text2";
-
-void blockcmp();
+void blockcmp(struct stat s1, struct stat s2, const char* filename1, const char* filename2);
 
 #endif
