@@ -3,19 +3,22 @@
 #include <time.h>
 #include "filetime.h"
 
-void filetime(const char *filename, time_t *file_time) {
+void filetime1(const char *filename, time_t *mtime) {
     struct stat statbuf;
-    if (stat(filename, &statbuf) != 0) {
-        perror("stat failed in filetime");
-        return;
-    }
-
-    *file_time = statbuf.st_mtime;
-
-    struct tm *temp = localtime(file_time);
-    if (temp != NULL) {
-        printf("%s: time information successfully retrieved\n", filename);
+    if (stat(filename, &statbuf) == -1) {
+        perror("stat error");
     } else {
-        fprintf(stderr, "localtime failed for %s\n", filename);
+        *mtime = statbuf.st_mtime;
+        printf("%s modification time loaded.\n", filename);
+    }
+}
+
+void filetime2(const char *filename, time_t *mtime) {
+    struct stat statbuf;
+    if (stat(filename, &statbuf) == -1) {
+        perror("stat error");
+    } else {
+        *mtime = statbuf.st_mtime;
+        printf("%s modification time loaded.\n", filename);
     }
 }

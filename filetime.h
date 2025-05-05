@@ -3,6 +3,7 @@
 
 #include <time.h>
 
-void filetime(const char *filename, time_t *file_time);
+void filetime1(const char *filename, time_t *mtime);
+void filetime2(const char *filename, time_t *mtime);
 
 #endif
